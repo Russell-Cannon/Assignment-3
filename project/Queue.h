@@ -11,7 +11,6 @@ public:
         size = 0;
         maxSize = 1;    
         head = 0;
-        tail = 0;
     }
     ~Queue() {
         delete [] arr;
@@ -34,7 +33,6 @@ public:
             Double();
         
         (*this)[size] = element;
-        tail++;
         size++;
     }
 
@@ -91,7 +89,6 @@ protected:
         arr = newArr; //move pointer to new array    
         maxSize *= 2; //double the size    
         head = 0;
-        tail = size > 0 ? size - 1 : 0;
     }
     void Half() {
         T* newArr = new T[maxSize/2];
@@ -102,14 +99,12 @@ protected:
         arr = newArr; //move pointer to new array    
         maxSize /= 2; //half the size    
         head = 0;
-        tail = size > 0 ? size - 1 : 0;
     }
 
     T* arr;
     int size;
     int maxSize;
     int head; //Get from head //The index with the frontmost element
-    int tail; //add to tail //The index with the endmost element - mostly one less than the size
 };
 
 #endif

@@ -1,7 +1,7 @@
 CPP := g++ # change to clang++ for final submission
 
-main.out:	main.o Digraph.o
-	$(CPP) -o main.out main.o Digraph.o
+main:	main.o Digraph.o
+	$(CPP) -o main.exe main.o Digraph.o
 
 main.o:	main.cpp
 	$(CPP) -c -o $@ $<
