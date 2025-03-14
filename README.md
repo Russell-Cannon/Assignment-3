@@ -9,8 +9,6 @@
    - [ ] Overall runtime
    - [ ] Shortest paths
    - [ ] Proper formatting (?)
- - [ ] Rewrite c-string stuff
- - [ ] Convert graph to text
 
 ## MS
  - [ ] 
@@ -19,7 +17,7 @@
  - [ ] 
 
 ## RC
- - [ ] 
+ - [ ] Convert graph to text
 
 ## SB
  - [ ] 
@@ -29,15 +27,19 @@
 
 # Questions
 ## To Ask
- - [ ] How is the input-file structured?
- - [ ] What does the number on the graph in the document mean?
-   - [ ] Are these numbers weighted?
- - [ ] What does a properly formatted log file look like
- - [ ] What functions are considered algorithms?
-   - [ ] Is strcpy considered an algorithm?
-   - [ ] Getting current date from Chrono?
- - [ ] What does overall runtime mean
+ - [ ]
 
 ## Asked
- - [ ] 
-
+ - [x] How is the input-file structured?
+   - How ever we'd like
+   - He plans on testing it by asking us to add another edge somewhere at random
+ - [x] What does the number on the graph in the document mean?
+   - [x] Are these numbers weighted?
+       - They will be later but for now, we ignore the weights
+    - The same graph is to be used in a future project. We only care about the indices of nodes and their connections to other nodes
+ - [x] What does a properly formatted log file look like
+    - It is up to us. It just has to be readable.
+ - [x] What functions are considered algorithms?
+   - Pretty much everything in the whitelisted libraries is alright. Just no obscure sort functions, etc.
+ - [x] What does overall runtime mean
+   - Sum of the individual searches - do not include file i/o

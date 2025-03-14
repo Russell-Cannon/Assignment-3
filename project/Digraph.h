@@ -6,8 +6,8 @@
 #include <iostream>
 
 struct Node { //Should this be in its own file?
-    Node(int _data) : data(_data) {}
-    Node() : data(0) {}
+    Node(int _data);
+    Node();
     int data;
 };
 

@@ -1,9 +1,12 @@
 #include "Digraph.h"
 // #include "Queue.h" //For BFS
 
+Node::Node(int _data) : data(_data) {}
+Node::Node() : data(0) {}
+
 Digraph::Digraph(std::ifstream &fin) { //Populate the adjacency list from the file stream
     fin >> N;
-    AdjacencyList = new ResizingArray<Node>[N];
+    AdjacencyList = new ResizingArray<Node>[N]; //Array of resizing arrays
 
     for (int i = 0; i < N; i++) {
         int count;
