@@ -1,7 +1,6 @@
 # Tasks
 ## Unassigned
  - [ ] Latex Document
- - [ ] Constructing graph from input
  - [ ] Implement BFS
  - [ ] Timing the program
  - [ ] Log file
@@ -17,17 +16,18 @@
  - [ ] 
 
 ## RC
- - [ ] Convert graph to text
+ - [ ]
 
 ## SB
  - [ ] 
 
 ## Done
- - [ ] 
+ - [x] Constructing graph from input
+ - [x] Convert graph to text
 
 # Questions
 ## To Ask
- - [ ] Do the colors of the edges count?
+ - [ ] Do the colors of the edges matter?
 
 ## Asked
  - [x] How is the input-file structured?
