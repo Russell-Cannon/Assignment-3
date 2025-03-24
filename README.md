@@ -27,7 +27,7 @@
 
 # Questions
 ## To Ask
- - [ ]
+ - [ ] Do the colors of the edges count?
 
 ## Asked
  - [x] How is the input-file structured?
