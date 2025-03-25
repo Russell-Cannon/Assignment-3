@@ -20,7 +20,7 @@ public:
     
 private:
     int N;
-    ResizingArray<Node>* AdjacencyList;
+    ResizingArray<ResizingArray<Node>> AdjacencyList;
     
 };
 
