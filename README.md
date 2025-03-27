@@ -1,35 +1,34 @@
 # Tasks
 ## Unassigned
- - [ ] Latex Document
- - [ ] Implement BFS
- - [ ] Timing the program
- - [ ] Log file
-   - [ ] Date and time
-   - [ ] Overall runtime
-   - [ ] Shortest paths
-   - [ ] Proper formatting (?)
 
 ## MS
- - [ ] 
+ - [ ] Latex Document
+ - [ ] Tarball  
 
 ## PM
- - [ ] 
+ - [ ] Timing the program
+ - [ ] Log file (1/2)
+   - [ ] Overall runtime
+   - [ ] Date and time of run
+   - [ ] Shortest paths
 
 ## RC
- - [ ]
-
-## SB
- - [ ] 
-
-## Done
  - [x] Constructing graph from input
  - [x] Convert graph to text
 
+## SB
+ - [ ] Implement BFS
+   - [ ] Console I/O
+     - [ ] Three sources
+     - [ ] Termination message
+
 # Questions
 ## To Ask
- - [ ] Do the colors of the edges matter?
 
 ## Asked
+ - [x] Do the colors of the edges matter?
+   - Nope! 
+   - [ ] What about arrows on both sides of an edge
  - [x] How is the input-file structured?
    - How ever we'd like
    - He plans on testing it by asking us to add another edge somewhere at random
