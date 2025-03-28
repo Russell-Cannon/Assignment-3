@@ -5,12 +5,12 @@
  - [ ] Latex Document
  - [ ] Tarball  
 
-## PM
- - [ ] Timing the program
- - [ ] Log file (1/2)
-   - [ ] Overall runtime
-   - [ ] Date and time of run
-   - [ ] Shortest paths
+## PM Awaiting approval of tasks completed
+ - [?] Timing the program
+ - [?] Log file (1/2)
+   - [?] Overall runtime
+   - [?] Date and time of run
+   - [?] Shortest paths
 
 ## RC
  - [x] Constructing graph from input
