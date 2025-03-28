@@ -1,60 +1,44 @@
-Date and Time of Run: 2025-03-27 23:29:01
+Date and Time of Run: 2025-03-28 16:34:45
 
 User entering source vertexs
-Out of range input entered
+User entered 15 for Source vertex 1
+User entered 27 for Source vertex 2
 Invalid input entered
-User entered 0 for Source vertex 1
-User entered 15 for Source vertex 2
-User entered 32 for Source vertex 3
+Out of range input entered: 33
+User entered 1 for Source vertex 3
 
-Source vertexes for shortest path search: 0 15 32
+Source vertexes for shortest path search: 15 27 1
 
 Search: 1
 User entering destination vertex
 Invalid input entered
-Out of range input entered
-User entered 32 as the destination vertex
-Searching for shortest path to destination: 32
-Shortest Path from vertex 0 to 32: 0 -> 8 -> 7 -> 1 -> 3 -> 22 -> 17 -> 15 -> 28 -> 25 -> 32 (Time: 11227 ns)
-Shortest Path from vertex 15 to 32: 15 -> 28 -> 25 -> 32 (Time: 1551 ns)
-Shortest Path from vertex 32 to 32: 32 (Time: 495 ns)
+Out of range input entered: 36
+User entered 5 as the destination vertex
+Searching for shortest path to destination: 5
+Shortest Path from vertex 15 to 5: 15 -> 17 -> 16 -> 27 -> 3 -> 22 -> 4 -> 21 -> 5 (Time: 7945 ns)
+Shortest Path from vertex 27 to 5: 27 -> 3 -> 22 -> 4 -> 21 -> 5 (Time: 2846 ns)
+Shortest Path from vertex 1 to 5: 1 -> 3 -> 22 -> 4 -> 21 -> 5 (Time: 3342 ns)
 
 Search: 2
 User entering destination vertex
-User entered 5 as the destination vertex
-Searching for shortest path to destination: 5
-Shortest Path from vertex 0 to 5: 0 -> 8 -> 7 -> 6 -> 4 -> 21 -> 5 (Time: 6012 ns)
-Shortest Path from vertex 15 to 5: 15 -> 17 -> 16 -> 27 -> 3 -> 22 -> 4 -> 21 -> 5 (Time: 3727 ns)
-Shortest Path from vertex 32 to 5: 32 -> 25 -> 28 -> 15 -> 17 -> 16 -> 27 -> 3 -> 22 -> 4 -> 21 -> 5 (Time: 2777 ns)
+User entered 19 as the destination vertex
+Searching for shortest path to destination: 19
+Shortest Path from vertex 15 to 19: 15 -> 17 -> 14 -> 19 (Time: 4514 ns)
+Shortest Path from vertex 27 to 19: 27 -> 16 -> 17 -> 14 -> 19 (Time: 3032 ns)
+Shortest Path from vertex 1 to 19: 1 -> 3 -> 22 -> 17 -> 14 -> 19 (Time: 2294 ns)
 
 Search: 3
 User entering destination vertex
-User entered 29 as the destination vertex
-Searching for shortest path to destination: 29
-Shortest Path from vertex 0 to 29: 0 -> 8 -> 7 -> 1 -> 3 -> 27 -> 26 -> 30 -> 29 (Time: 6237 ns)
-Shortest Path from vertex 15 to 29: 15 -> 28 -> 29 (Time: 1227 ns)
-Shortest Path from vertex 32 to 29: 32 -> 25 -> 28 -> 29 (Time: 855 ns)
+User entered 11 as the destination vertex
+Searching for shortest path to destination: 11
+Shortest Path from vertex 15 to 11: 15 -> 17 -> 16 -> 27 -> 26 -> 24 -> 13 -> 11 (Time: 5050 ns)
+Shortest Path from vertex 27 to 11: 27 -> 26 -> 24 -> 13 -> 11 (Time: 1461 ns)
+Shortest Path from vertex 1 to 11: 1 -> 3 -> 27 -> 26 -> 24 -> 13 -> 11 (Time: 1755 ns)
 
 Search: 4
 User entering destination vertex
-User entered 18 as the destination vertex
-Searching for shortest path to destination: 18
-Shortest Path from vertex 0 to 18: 0 -> 8 -> 7 -> 1 -> 3 -> 22 -> 17 -> 14 -> 19 -> 20 -> 18 (Time: 7237 ns)
-Shortest Path from vertex 15 to 18: 15 -> 17 -> 14 -> 19 -> 20 -> 18 (Time: 3291 ns)
-Shortest Path from vertex 32 to 18: 32 -> 25 -> 28 -> 15 -> 17 -> 14 -> 19 -> 20 -> 18 (Time: 2797 ns)
-
-Search: 5
-User entering destination vertex
-User entered 4 as the destination vertex
-Searching for shortest path to destination: 4
-Shortest Path from vertex 0 to 4: 0 -> 8 -> 7 -> 6 -> 4 (Time: 4641 ns)
-Shortest Path from vertex 15 to 4: 15 -> 17 -> 16 -> 27 -> 3 -> 22 -> 4 (Time: 3328 ns)
-Shortest Path from vertex 32 to 4: 32 -> 25 -> 28 -> 15 -> 17 -> 16 -> 27 -> 3 -> 22 -> 4 (Time: 2567 ns)
-
-Search: 6
-User entering destination vertex
-User entered -9 to exit search loop
+User entered -5 to exit search loop
 exiting search loop
 
 Program terminated.
-Overall runtime: 37 seconds
+Overall runtime: 21 seconds

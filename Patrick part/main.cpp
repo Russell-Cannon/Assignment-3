@@ -162,7 +162,7 @@ void getSourcesInput(int sources[], int size, int numVertices, std::ofstream &lo
             } 
             if (sources[i] < 0 || sources[i] >= numVertices) {
                 std::cout<< "Error! source vertex must be in range of: 0 to " << numVertices - 1 << ". Please try again\n";
-                logFile << "Out of range input entered\n";
+                logFile << "Out of range input entered: " << sources[i] << "\n";
                 continue; 
             }
             logFile << "User entered " << sources[i] << " for Source vertex " << (i + 1) << "\n";
@@ -189,7 +189,7 @@ void getDestinationInput(int& destination, const int num_vertices, std::ofstream
 
         if (destination >= num_vertices) {
             std::cout<< "Error! destination vertex must be in range of: 0 to " << num_vertices - 1 << " or a negative number to exit.\n";
-            file << "Out of range input entered\n";
+            file << "Out of range input entered: " << destination << "\n";
             continue;
         }
 
