@@ -161,7 +161,7 @@ void getSourcesInput(int sources[], int size, int numVertices, std::ofstream &lo
                 continue;
             } 
             if (sources[i] < 0 || sources[i] >= numVertices) {
-                std::cout<< "Error! destination vertex must be in range of: 0 to " << numVertices - 1 << ". Please try again\n";
+                std::cout<< "Error! source vertex must be in range of: 0 to " << numVertices - 1 << ". Please try again\n";
                 logFile << "Out of range input entered\n";
                 continue; 
             }
