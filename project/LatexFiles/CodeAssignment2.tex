@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\geometry{letterpaper}
+
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Brief Article}
+\author{The Author}
+
+\begin{document}
+\begin{minipage}{\linewidth}
+  \centering
+ 
+\includegraphics[keepaspectratio=true, scale=0.35]{CMU.png}
+  \section*{\emph{\bf Code Task 2 \hspace{0.2 cm} Due: 11:59 PM Mar 31\textsuperscript{st}, 2025\hspace{0.2cm}20 Points}}
+  \section*{CSCI 250 Introduction to Algorithms}
+  \section*{Graph Theory Algorithms}
+  \section*{By: McKenzie Swindler, Stephen Bruner, Russell Cannon, Patrick Murphy\newline}
+
+\end{minipage}
+
+
+\section*{Task Description}
+Construct a data input file containing the representation of the graph pictured below
+a “DIGRAPH”. The “DIGRAPH” vertices labels are the integer in each node circle.
+Arrows indicate edge directions. Edges without arrowheads are bidirectional and exist
+as two directed edges.
+Your program is to accept a single command line argument when invoked being the
+data file name. Your program will then read the file contents into memory (using your
+designed dynamic memory-based data storage structure). It would be unwise to code
+your data structure based on the assumption that the graph size is limited to what is
+pictured below. The test/demo graph may be larger (have extra nodes).
+Once the program reads the file data, close it, you may not read from it again. Your
+program will then prompt the user for three source vertices and destinations. 
+Sample interaction:\newline\newline
+Provide 3 sources: 7 19 26\newline
+Destination 1?: 32\newline
+Shortest Path 1 from vertex “Number”:\newline
+Shortest Path 2 from vertex “Number”:\newline
+Shortest Path 3 from vertex “Number”:\newline\newline
+Destination 2?: 22\newline
+Shortest Path 1 from vertex “Number”:\newline
+Shortest Path 2 from vertex “Number”:\newline
+Shortest Path 3 from vertex “Number”:\newline\newline
+Destination 3?: 3\newline
+Shortest Path 1 from vertex “Number”:\newline
+Shortest Path 2 from vertex “Number”:\newline
+Shortest Path 3 from vertex “Number”:\newline
+
+\section*{Program Termination}
+Upon a negative value user input the program will terminate, to do so it must:
+\begin{itemize}
+ \item Write a properly formatted log file of all interaction from invocation to termination
+ \item For each Shortest path in the log it should also present running time of the calculation in nanoseconds
+ \item De-allocate all dynamically allocated memory
+ \item Record the overall runtime in seconds
+ \item Record the date and time of the run
+ \item Display a termination message on the screen
+\end{itemize}
+
+\section*{Our Program}
+We decided to use the Breadth First algorithm to complete this task. Between BFS and DFS, BFS is best suitable for finding the shortest path between nodes.
+
+\section*{Blacklist}
+\begin{itemize}
+  \item C++ code using STL constructs or libraries.
+  \item Any data structure not of your making.
+\end{itemize}
+
+\textbf{Deliverables:}
+\begin{itemize}
+  \item C++ code implementing the Union-Find data structure and solving the problem.
+  \item Classes should be coded using interface and implementations in separate les i.e., \.h" and\.cpp". Templated classes should be prototyped and implemented in their interface ".h" les. required).
+  \item A LATEX based PDF document explaining your algorithm's time complexity analysis and any
+optional features you implemented.
+\end{itemize}
+
+\vfill
+\hrule
+
+\begin{center}
+{\scriptsize Last updated: \today\ - Typeset using: \textsc{t\kern -.12em\lower.4ex\hbox{e}\kern-.1em xs}hop by:\\ McKenzie Swindler \textcolor{blue}{Student of Computer Science} }
+\end{center}
+
+\end{document}
