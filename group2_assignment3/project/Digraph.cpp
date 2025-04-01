@@ -1,6 +1,4 @@
 #include "Digraph.h"
-#include "Queue.h" //For BFS
-#include <iostream>
 
 Node::Node(int _data) : data(_data) {}
 Node::Node() : data(0) {}
@@ -32,11 +30,11 @@ void Digraph::print() {
     }
 }
 
-void Digraph::BFS(int start, int target){
-    //handles edge case where start == target
-    if (start == target){
+ResizingArray<int>* Digraph::BFS(int start, int target){
+    //handles edge case where start is the same as target
+    if (start == target) {
         std::cout << "Shortest path from " << start << " to " << target << ": " << start << std::endl;
-        return;
+        return nullptr;
     }
 
     Queue<int> q;
@@ -47,7 +45,7 @@ void Digraph::BFS(int start, int target){
     previous = ResizingArray<int>();
 
     //Initializes the visited and previous Resizing Arrays
-    for (int i = 0; i < AdjacencyList.getSize(); i++){
+    for (int i = 0; i < AdjacencyList.getSize(); i++) {
         visited.Push(false);
         previous.Push(-1);  //-1 means no predecessor
     }
@@ -56,49 +54,32 @@ void Digraph::BFS(int start, int target){
     q.Push(start);
     visited[start] = true;
 
-    while (!q.IsEmpty())
-    {
+    while (!q.IsEmpty()) {
         //Pops the node at the front of the queue
         int node = q.Pop();
-
-        //debug
-        // std::cout << "Processing node: " << node << std::endl;
 
         //If target node is reached, reconstruct the path
         if (node == target)
         {
-            std::cout << "Shortest path from " << start << " to " << target << ": ";
-            
             //Reconstruct path using a ResizingArray
             ResizingArray<int> path;
-            for (int v = target; v != -1; v = previous[v])
-            {
+            for (int v = target; v != -1; v = previous[v]) {
                 path.Push(v);
             }
 
             // Reverse the path to get the correct order
-            ResizingArray<int> correctPath;
+            ResizingArray<int>* correctPath = new ResizingArray<int>;
             for (int i = path.getSize() - 1; i >= 0; --i) {
-                correctPath.Push(path[i]);
+                correctPath->Push(path[i]);
             }
-
-            // Print the correct path
-            for (int i = 0; i < correctPath.getSize(); i++) {
-                std::cout << correctPath[i] << " ";
-            }
-            std::cout << std::endl;
-            return;
+            return correctPath;
         }
 
         //Traverses neighbors of the current node directly
-        for (int j = 0; j < AdjacencyList[node].getSize(); j++)
-        {
+        for (int j = 0; j < AdjacencyList[node].getSize(); j++) {
             int neighbor = AdjacencyList[node][j].data;
             
-            //debug
-            // std::cout << "Neighbor: " << neighbor << std::endl;
-            if (!visited[neighbor])
-            {
+            if (!visited[neighbor]) {
                 q.Push(neighbor);
                 visited[neighbor] = true;
                 previous[neighbor] = node;  //Marks the predecessor
@@ -106,5 +87,9 @@ void Digraph::BFS(int start, int target){
         }
     }
 
-    std::cout << "No path found from " << start << " to " << target << std::endl;
+    return nullptr;
+}
+
+int Digraph::getSize() {
+    return AdjacencyList.getSize();
 }

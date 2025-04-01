@@ -2,25 +2,25 @@
 ## Unassigned
 
 ## MS
- - [ ] Latex Document
+ - [x] Latex Document
  - [ ] Tarball  
 
 ## PM Awaiting approval of tasks completed
- - [?] Timing the program
- - [?] Log file (1/2)
-   - [?] Overall runtime
-   - [?] Date and time of run
-   - [?] Shortest paths
+ - [x] Timing the program
+ - [x] Log file
+   - [x] Overall runtime
+   - [x] Date and time of run
+   - [x] Shortest paths
 
 ## RC
  - [x] Constructing graph from input
  - [x] Convert graph to text
 
 ## SB
- - [ ] Implement BFS
-   - [ ] Console I/O
-     - [ ] Three sources
-     - [ ] Termination message
+ - [x] Implement BFS
+   - [x] Console I/O
+     - [x] Three sources
+     - [x] Termination message
 
 # Questions
 ## To Ask

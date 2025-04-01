@@ -2,44 +2,33 @@
 #include <fstream>
 #include <cstring>
 #include <chrono> 
-#include <iomanip> // std::put_time
+#include <iomanip>
+
 #include "Digraph.h" 
+#include "ResizingArray.h"
 
 // Functions to get input 
-// * I'm assuming these functions can get number of Vertices from the digraph data structure to handle invalid 
-//   inputs that are higher than the total number of vertices in the digraph
 void getSourcesInput(int sources[], int size, int numVertices, std::ofstream& logFile);
 void getDestinationInput(int &destination, int numVertices, std::ofstream& logFile);
 
 int main(int argc, char *argv[]) {
+    //Open input file
     char fileName[32];
-    if (argc < 2) {
+    if (argc < 2) { //If the user forgot to provide a filename
         std::cout << "Enter filename: ";
         std::cin >> fileName;
-    } 
-    else 
-        strcpy(fileName, argv[1]);
+    } else 
+        strcpy(fileName, argv[1]); //Copy terminal argument to the filename
 
     std::ifstream fin(fileName);
+
+    if (!fin) {
+        std::cerr << "Error: Unable to find '" << fileName << "'\n";
+        return 1;
+    }
+
+    //Populate digraph from input stream
     Digraph digraph(fin);
-    digraph.print();
-
-/* =========== Patrick's main structure ===================== /
-Here's a skeleton that handles user input, uses chrono library to
-time runs, and log file to log date, time, overall run time, user interactions, etc... 
-Feel free to change and adjust anything here to make it work with your
-data structures, ideas, and needs. I created a prototype folder
-that holds an example log file so you can get an idea of how it'll
-look. I am open to any changes you all would like. I also added
-a prototype executable that you can run with the data.txt file
-to get an idea of what the user interface will be like and the log files it
-will create. It should be practically identical to what I have here.
-There's a Makefile with it so you can type: make run
-or you can do it the classic way of: ./prototype data.txt
-
-Please feel free to reach out to me if you need anything, concerns, questions
-etc...
-*/
 
     // Creating log file
     std::ofstream logFile("log.txt");
@@ -56,17 +45,12 @@ etc...
     std::time_t dateTime = std::chrono::system_clock::to_time_t(current_time);
     logFile << "Date and Time of Run: " << std::put_time(std::localtime(&dateTime), "%F %T") << "\n";
     
-
-    // placeholder variable for getting number of vertices from the digraph object
-    int num_of_vertices;
-    // 
-
+    
     // Prompt user for three source vertices
-    int source_size = 3;
+    const int source_size = 3;
     int sources[source_size];
+    int num_of_vertices = digraph.getSize();
     getSourcesInput(sources, source_size, num_of_vertices, logFile);
-    logFile << "\nSource vertexes for shortest path search: " << sources[0] << " " << sources[1] << " " << sources[2] << "\n\n";
-    // ^ I'm thinking of removing this line from the log file
 
     // Main interactive loop
     int destination;
@@ -78,37 +62,35 @@ etc...
         getDestinationInput(destination, num_of_vertices, logFile); // Get user input for destination node
         // Exit loop when user enters a negative number
         if (destination < 0) {
-            logFile << "\n Exiting search loop.\n";
+            logFile << "\nExiting search loop.\n";
             break;
         }
         logFile << "Searching for shortest path to destination: " << destination << "\n";
 
         // For each source vertex, perform the shortest path search
         for (int i = 0; i < 3; i++) {
-
-            int* path = nullptr; //   dummy variables for displaying shortest path after search
-            int pathLength = 0;  //   feel free to change them to suit what your style/needs to make it work
-
             // Timing for shortest path search
             auto startTime = std::chrono::high_resolution_clock::now(); // Start clocking time search
-            // findShortestPath(source[i]); your variation of search
-            found = true; // Place holder for shortest path search to time
+
+            ResizingArray<int>* path = digraph.BFS(sources[i], destination);
+
             auto endTime = std::chrono::high_resolution_clock::now();   // End clocking time of search
+
             long long searchDuration = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count(); // Duration of search in nano seconds
 
             // log and display the result, if found
-            if (found) {
+            if (path != nullptr) {
                 std::cout << "Shortest Path from vertex " << sources[i] << " to " << destination << ": ";
                 logFile << "Shortest Path from vertex " << sources[i] << " to " << destination << ": ";
 
                 // log and display path
-                for (int j = 0; j < pathLength; j++) {
-                    std::cout << path[j];
-                    logFile << path[j];
-                    if (j < pathLength - 1) {
+                for (int j = 0; j < (*path).getSize(); j++) {
+                    if (j != 0) {
                         std::cout << " -> ";
                         logFile << " -> ";
                     }
+                    std::cout << (*path)[j];
+                    logFile << (*path)[j];
                 }
 
                 // display and log time to find path in nanoseconds
@@ -120,13 +102,13 @@ etc...
                 logFile << "No path from vertex " << sources[i] << " to " << destination << " found\n";
             }
 
-            // dummy deallocation for dummy path array
+            // deallocate path array
             if (path != nullptr) {  
-                delete[] path;     
+                delete path;
                 path = nullptr; 
             }
         }
-        logFile << "\n"; // new line to seperate each set of searches in log file
+        logFile << "\n"; // new line to separate each set of searches in log file
         searchCount++;
     }
 
@@ -147,7 +129,7 @@ etc...
 }
 
 void getSourcesInput(int sources[], int size, int numVertices, std::ofstream &logFile) {
-    logFile << "User entering source vertexs\n";
+    logFile << "User entering source vertices\n";
     for (int i = 0; i < size; i++) {
         bool valid = false;
         while (!valid) {
@@ -166,7 +148,7 @@ void getSourcesInput(int sources[], int size, int numVertices, std::ofstream &lo
                 continue; 
             }
             logFile << "User entered " << sources[i] << " for Source vertex " << (i + 1) << "\n";
-                valid = true;
+            valid = true;
         }
     }
     logFile << "\n";

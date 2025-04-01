@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cstring>
 #include "Digraph.h" 
+#include "ResizingArray.h"
 
 int main(int argc, char *argv[]) {
     char fileName[32];
@@ -20,7 +21,10 @@ int main(int argc, char *argv[]) {
     std::cin >> start;
     std::cin >> target;
     std::cout << "Finding shortest path from " << start << " to " << target << ":\n";
-    digraph.BFS(start, target);
+    
+    ResizingArray<int> t;
+    t = *digraph.BFS(start, target);
+    t.Print();
 
     return 0;
 }
